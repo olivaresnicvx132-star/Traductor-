@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traductor 2.0</title>
-    <!-- Fuentes de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>Primera y última carta que leerás ✨</title>
+    <!-- Fuentes de Google Fonts: Old Standard TT y Crete Round -->
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Great Vibes', cursive;
-            background-image: url('fondo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-color: #120c1f;
-            color: #f3e8ff;
+            font-family: 'Old Standard TT', serif;
+            /* Fondo de color morado oscuro uniforme */
+            background-color: #211336;
+            color: #2c1810;
             margin: 0;
             padding: 10px;
             display: flex;
@@ -26,202 +22,144 @@
             box-sizing: border-box;
         }
         
-        /* Panel Central Compacto */
-        .container {
+        /* Contenedor más pequeño, cuadrado, con bordes rectos tipo carta antigua */
+        .pergamino {
             width: 100%;
-            max-width: 360px;
-            background: rgba(20, 10, 30, 0.78);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(216, 180, 254, 0.3);
-            padding: 18px 20px;
-            border-radius: 20px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 12px rgba(168, 85, 247, 0.15);
+            max-width: 275px;
+            background: radial-gradient(circle, rgba(248, 241, 223, 0.97) 0%, rgba(230, 213, 180, 0.95) 100%);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 18px 14px 14px 14px;
+            box-sizing: border-box;
+            text-align: center;
+            
+            /* Bordes rectos y cuadrados exactos */
+            border-radius: 0px;
+            border: 2px solid #8b5e26;
+            outline: 1px solid rgba(139, 94, 38, 0.4);
+            outline-offset: -4px;
+            
+            box-shadow: 
+                0 12px 25px rgba(0, 0, 0, 0.8), 
+                inset 0 0 20px rgba(120, 75, 25, 0.2);
         }
 
         h2 {
+            font-family: 'Old Standard TT', serif;
             text-align: center;
-            color: #e9d8fd;
-            font-size: 36px;
-            margin-top: 0;
-            margin-bottom: 2px;
-            font-weight: normal;
-            text-shadow: 0 0 10px rgba(216, 180, 254, 0.5);
-        }
-
-        .subtitle {
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            color: #d8b4fe;
-            font-size: 11px;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            margin-top: 2px;
-            margin-bottom: 15px;
-            opacity: 0.85;
-            text-shadow: 0 0 6px rgba(216, 180, 254, 0.3);
-        }
-
-        /* Área para escribir con fuente Cinzel */
-        textarea {
-            width: 100%;
-            height: 75px;
-            padding: 10px;
-            font-size: 15px;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 0.5px;
-            background-color: rgba(12, 6, 20, 0.7);
-            color: #f3e8ff;
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            border-radius: 12px;
-            resize: none;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        textarea:focus {
-            border-color: #d8b4fe;
-            box-shadow: 0 0 8px rgba(216, 180, 254, 0.3);
-            background-color: rgba(12, 6, 20, 0.85);
-        }
-
-        .buttons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        button {
-            flex: 1;
-            background: linear-gradient(135deg, #6b21a8, #4c1d95);
-            color: #f3e8ff;
-            border: 1px solid rgba(216, 180, 254, 0.3);
-            padding: 6px 8px;
+            color: #4a2e18;
             font-size: 19px;
-            font-family: 'Great Vibes', cursive;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        button:hover {
-            background: linear-gradient(135deg, #7e22ce, #581c87);
-            border-color: #d8b4fe;
-            transform: translateY(-1px);
-            box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
-        }
-
-        h3 {
             margin-top: 0;
-            margin-bottom: 4px;
-            font-size: 22px;
-            color: #d8b4fe;
-            font-weight: normal;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+            line-height: 1.3;
         }
 
-        /* Área del resultado con fuente Cinzel */
-        .output-box {
-            background-color: rgba(12, 6, 20, 0.7);
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            padding: 10px;
-            border-radius: 12px;
-            min-height: 38px;
-            font-size: 15px;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 0.5px;
-            word-break: break-all;
-            white-space: pre-wrap;
-            color: #f3e8ff;
+        /* Texto de la carta con Crete Round y barra de desplazamiento suave */
+        .carta-texto {
+            font-family: 'Crete Round', serif;
+            color: #331e11;
+            font-size: 11px;
+            line-height: 1.4;
+            text-align: justify;
+            margin-bottom: 14px;
+            background-color: rgba(255, 253, 247, 0.5);
+            padding: 9px;
+            border-radius: 0px;
+            border: 1px dashed rgba(160, 115, 60, 0.4);
+            white-space: pre-line;
+            max-height: 260px; /* Tamaño compacto con scroll interno */
+            overflow-y: auto;
         }
 
-        .copy-btn {
-            margin-top: 8px;
+        /* Botón de navegación recto y limpio */
+        .btn-link {
+            display: block;
             width: 100%;
-            background: linear-gradient(135deg, #4c1d95, #3b0764);
-            font-size: 18px;
+            background: linear-gradient(135deg, #6e3f1c, #4a280f);
+            color: #fcf8ee;
+            border: 1px solid #9e723e;
+            padding: 7px;
+            font-size: 13.5px;
+            font-family: 'Old Standard TT', serif;
+            letter-spacing: 0.5px;
+            border-radius: 0px;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-link:hover {
+            background: linear-gradient(135deg, #854d24, #5c3214);
+            border-color: #c49658;
+            transform: translateY(-1px);
+            box-shadow: 0 0 10px rgba(160, 115, 60, 0.5);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Traductor 2.0</h2>
-    <p class="subtitle">Toma esto como mi iniciativa para empezar a llevarnos bien. Te estoy dando la respuesta en vez de dejar que intentaras adivinarlo, valoralo.</p>
+<div class="pergamino">
+    <h2>Primera y última carta que leerás</h2>
     
-    <textarea id="inputText" placeholder="Escribe tu texto aquí..."></textarea>
-    
-    <div class="buttons">
-        <button onclick="traducirAEspecial()">Español ➔ Mi Idioma</button>
-        <button onclick="traducirANormal()">Mi Idioma ➔ Español</button>
-    </div>
+    <div class="carta-texto">querida cabeza de ñame... 
 
-    <h3>Resultado:</h3>
-    <div id="outputText" class="output-box"></div>
-    <button class="copy-btn" onclick="copiarTexto()">Copiar Resultado.</button>
+¿Así era, no? 
+
+Bueno ya serio, no podía hacerlo tan formal necesitaba romper el hielo. 
+      
+Creo que se supone que empiece con un feliz cumpleaños y decir que te estas poniendo vieja, pero eso ya lo haran otras personas y yo me niego a ser parte del montón. 
+
+      Puedes tomar esto como el mensaje de las 12 que aunque estaba listo no envié, porque me daba pena hacerlo en español.
+      
+Debo decir que cuando te estaba acosando, digo, viendo en la entrada de la universidad no estaba en mis planes terminar haciendote una carta en código. 
+      Pero, al caso. Acordamos que ya no diria idioteces en momentos serios.
+
+      Gracias por no mandarme a la mierda cuando nos quisieron obligar a jugar juntas.
+
+Y también por aguantar los golpes, pellizcos, el árabe, las cruzadas de cable... bueno, todo. 
+
+Pero sobre todo gracias por aceptar ir a mi casa.
+Desde el principio quise acercarme porque, pues no sé, me llamabas la atención, y eras (eres) de esas personas que ves y dices quiero conocerla, pero yo soy yo. 
+
+Al final no me equivoqué, resultaste ser una persona muy linda (no hablo físicamente aunque bueno también pero ese es otro tema para otro año, por ahí el de los 50). Aunque a veces provoca pegarte, me gusta cómo eres en sí. Tus gustos musicales, las series y peliculas que ves, cómo eres con los animales y con los niños, sobre todo con los niños, las 40 mañas que tienes y hasta tu forma de reaccionar a las cosas retardadamente. 
+Aunque me estresas, mucho, y me caes mal, realmente es más creíble un "estoy embarazada" a un "te odio".
+
+Si te odio, pero, de forma no convencional.
+
+Soy medio imbecil, y realmente no sé cómo decirlo sin decirlo, 
+pero me alegra haberte conocido.
+
+¿El año pasado dije que queria conocerte mejor, cierto? 
+
+Bueno, eso sigue en pie a dia de hoy, y mañana, y pasado, pero ya es tu decisión si me dejas hacerlo.
+
+ (Di que si, anda)
+
+Hagamos algo, porque de palabras suele ser mas facil que hacerlo. 
+
+Pinkie promise que te voy a tener paciencia y voy a usar traductor para entender los 300 cambios de humor por minuto que tienes, si prometes no mandarme a la mierda o construir un muro como la muralla de china, al menos no que sea permanente. 
+
+Y también tienes que prometer que vas a permanecer viva porque yo no quiero chismear con un fantasma.
+
+Te acabo de conocer, no quiero que te vayas todavía. Aun me queda karma que pagar.
+
+Y esta es, una de muchas cartas que puede que veas, o puede que no. 
+
+Sea cual sea el caso, yo no pedi que llegaras a complicar mi existencia, pero si voy a pedir que ya no te vayas porque te denuncio por abandono y daño psicologico. Asi que ya no puedes irte, gracias.
+
+Te odio, estupida. 
+
+Feliz cumpleaños, y dia, y semana, y vida completa. Que lo unico infeliz sean los dias de examenes, de resto mas nada.
+
+P.d: La Nicole de diciembre nunca se fue, solo que me niego a dejarme hacer bullying tan facil.</div>
+
+    <!-- Enlace hacia el Traductor -->
+    <a href="traductor.html" class="btn-link">Ir al Traductor ➔</a>
 </div>
-
-<script>
-    // Tu abecedario personalizado
-    const mapEspToCustom = {
-        'a': '∆', 'b': '&', 'c': '4', 'd': '2', 'e': '=', 'f': '£',
-        'g': '[', 'h': '*', 'i': '(1/000)', 'j': '✓', 'k': 'π', 'l': '★',
-        'm': '(1000)', 'n': '9', 'ñ': '/', 'o': '8', 'p': '#', 'q': '@',
-        'r': '-', 's': '6', 't': '3', 'u': '1', 'v': '(20)', 'w': '~',
-        'x': '-', 'y': '¥', 'z': '^', ' ': '   '
-    };
-
-    // Mapeo inverso exacto
-    const mapCustomToEsp = {
-        '∆': 'A', '&': 'B', '4': 'C', '2': 'D', '=': 'E', '£': 'F',
-        '[': 'G', '*': 'H', '(1/000)': 'I', '✓': 'J', 'π': 'K', '★': 'L',
-        '(1000)': 'M', '9': 'N', '/': 'Ñ', '8': 'O', '#': 'P', '@': 'Q',
-        '-': 'R', '6': 'S', '3': 'T', '1': 'U', '(20)': 'V', '~': 'W',
-        '¥': 'Y', '^': 'Z', '   ': ' '
-    };
-
-    function traducirAEspecial() {
-        let texto = document.getElementById('inputText').value.toLowerCase();
-        let resultado = '';
-        
-        for (let char of texto) {
-            if (mapEspToCustom[char] !== undefined) {
-                resultado += mapEspToCustom[char] + ' ';
-            } else {
-                resultado += char;
-            }
-        }
-        document.getElementById('outputText').innerText = resultado.trim();
-    }
-
-    function traducirANormal() {
-        let texto = document.getElementById('inputText').value;
-        
-        let pattern = /\(1\/000\)|\(1000\)|\(20\)|\S/g;
-        let tokens = texto.match(pattern) || [];
-        let resultado = '';
-
-        for (let token of tokens) {
-            if (mapCustomToEsp[token]) {
-                resultado += mapCustomToEsp[token];
-            } else {
-                resultado += token;
-            }
-        }
-        document.getElementById('outputText').innerText = resultado;
-    }
-
-    function copiarTexto() {
-        let textoResultado = document.getElementById('outputText').innerText;
-        if (textoResultado) {
-            navigator.clipboard.writeText(textoResultado).then(() => {
-                alert('¡Texto copiado!');
-            });
-        }
-    }
-</script>
 
 </body>
 </html>
